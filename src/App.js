@@ -1,23 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import "./App.css";
+import Footer from "./components/Footer/Footer";
+import Header from "./components/Header/Header";
+import Main from "./components/Main/Main";
 
 function App() {
+  const [posts, setPosts] = useState([]);
+
+  const addNewPost = (login, text, img) => {
+    setPosts((prev) => [
+      ...prev,
+      {
+        id: Date.now(),
+        login,
+        text,
+        img,
+      },
+    ]);
+  };
+
+  console.log(posts);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Header />
+      <Main addNewPost={addNewPost} posts={posts} />
+      <Footer />
     </div>
   );
 }

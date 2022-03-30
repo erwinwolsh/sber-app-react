@@ -1,0 +1,10 @@
+ul, li {
+    list-style: none;
+}
+
+header{
+    background-color: blue;
+    color: aliceblue;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
