@@ -6,7 +6,6 @@ const Form = ({ addNewPost }) => {
   const [login, setLogin] = useState(" ");
   const changeLogin = (e) => {
     setLogin(e.target.value);
-    setText(e.target.value);
   };
 
   // Добавляем текст поста
@@ -23,6 +22,7 @@ const Form = ({ addNewPost }) => {
 
   const submitHandler = (e) => {
     e.preventDefault();
+
     addNewPost(login, text, img);
     setLogin(" ");
     setText(" ");

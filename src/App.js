@@ -15,17 +15,43 @@ function App() {
         login,
         text,
         img,
+        liked: false,
       },
     ]);
   };
 
-  console.log(posts);
+  const deletePost = (id) => {
+    setPosts((prev) => prev.filter((post) => post.id !== id));
+  };
+
+  const likedPost = (id) => {
+    setPosts((prev) =>
+      prev.map((post) => {
+        if (post.id === id) {
+          return {
+            ...post,
+            liked: !post.liked,
+          };
+        }
+        return post;
+      })
+    );
+  };
+
+  const clearPosts = () => {
+    setPosts([]);
+  };
 
   return (
     <div className="App">
       <Header />
-      <Main addNewPost={addNewPost} posts={posts} />
-      <Footer />
+      <Main
+        addNewPost={addNewPost}
+        posts={posts}
+        deletePost={deletePost}
+        likedPost={likedPost}
+      />
+      <Footer clearPosts={clearPosts} />
     </div>
   );
 }
