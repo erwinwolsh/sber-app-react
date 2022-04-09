@@ -1,9 +1,11 @@
+import { useContext } from "react";
+import { PostContext } from "../../contexts/PostContext";
 import "./PostItem.css";
 
-const PostItem = ({ id, login, text, img, liked, deletePost, likedPost }) => {
-  const deleteHandler = () => {
-    deletePost(id);
-  };
+const PostItem = ({ id, login, text, img, liked }) => {
+  const { likedPost, deletePost } = useContext(PostContext);
+
+  const deleteHandler = () => deletePost(id);
 
   const likedHandler = () => {
     likedPost(id);

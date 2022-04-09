@@ -1,7 +1,8 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { PostContext } from "../../contexts/PostContext";
 import "./Form.css";
 
-const Form = ({ addNewPost }) => {
+const Form = () => {
   // Добавляем логин
   const [login, setLogin] = useState(" ");
   const changeLogin = (e) => {
@@ -20,8 +21,16 @@ const Form = ({ addNewPost }) => {
     setImg(e.target.value);
   };
 
+  const { addNewPost } = useContext(PostContext);
+
   const submitHandler = (e) => {
     e.preventDefault();
+
+    // const loginTrim = login.trim();
+    // if (loginTrim) {
+    //   addNewPost(loginTrim);
+    //   setLogin("");
+    // }
 
     addNewPost(login, text, img);
     setLogin(" ");
