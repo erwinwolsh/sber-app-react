@@ -1,7 +1,7 @@
-import { useContext } from "react";
+import React, { useContext } from "react";
 import { PostContext } from "../../contexts/PostContext";
 
-const Footer = () => {
+function Footer() {
   const { clearPosts } = useContext(PostContext);
 
   return (
@@ -11,6 +11,7 @@ const Footer = () => {
       </button>
     </footer>
   );
-};
+}
 
-export default Footer;
+// React.nemo позволяет компонентам не рендериться, если у них что-то не изменилось
+export default React.memo(Footer);
