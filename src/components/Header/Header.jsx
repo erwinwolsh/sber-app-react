@@ -1,24 +1,37 @@
 import React from "react";
 import "./Header.css";
-import CustomLink from "../CustomLink/CustomLink";
+// import CustomLink from "../CustomLink/CustomLink";
+import { NavLink } from "react-router-dom";
 
 function Header() {
   return (
     <header>
-      <ul className="d-flex justify-content-between align-center my-5 mx-5">
-        <li>
-          <CustomLink to="/">Главная</CustomLink>
-        </li>
-        <li>
-          <CustomLink to="/">Войти</CustomLink>
-        </li>
-        <li>
-          <CustomLink to="/">Зарегистрироваться</CustomLink>
-        </li>
-        <li>
-          <CustomLink to="about">О проекте</CustomLink>
-        </li>
-      </ul>
+      <nav className="navbar navbar-light bg-light navbar-expand-lg my-5 mx-5">
+        <div className="container-fluid">
+          <ul className="navbar-nav">
+            <li className="navbar-item">
+              <NavLink className="nav-link" to="/">
+                Главная
+              </NavLink>
+            </li>
+            <li className="navbar-item">
+              <NavLink className="nav-link" to="/">
+                Войти
+              </NavLink>
+            </li>
+            <li className="navbar-item">
+              <NavLink className="nav-link" to="/">
+                Зарегистрироваться
+              </NavLink>
+            </li>
+            <li className="navbar-item">
+              <NavLink className="nav-link" to="about">
+                О проекте
+              </NavLink>
+            </li>
+          </ul>
+        </div>
+      </nav>
     </header>
   );
 }
