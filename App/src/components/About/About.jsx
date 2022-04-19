@@ -1,7 +1,9 @@
+import Form from "../Form/Form";
+
 function About() {
   return (
     <div className="container">
-      <p>Lorem ipsum</p>
+      <Form />
     </div>
   );
 }

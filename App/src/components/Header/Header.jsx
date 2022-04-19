@@ -14,10 +14,10 @@ function Header() {
             <CustomLink to="auth/signin">Войти</CustomLink>
           </li>
           <li className="nav-item">
-            <CustomLink to="auth/signup">Зарегистрироваться</CustomLink>
+            <CustomLink to="auth/signup">!Зарегистрироваться</CustomLink>
           </li>
           <li className="nav-item">
-            <CustomLink to="about">О проекте</CustomLink>
+            <CustomLink to="about">Личный кабинет</CustomLink>
           </li>
           <li className="nav-item">
             <CustomLink to="auth/signout">Выйти</CustomLink>
