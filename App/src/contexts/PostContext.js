@@ -1,4 +1,4 @@
-import { createContext } from "react";
+import { createContext, useEffect } from "react";
 import usePosts from "../hooks/usePosts";
 
 const PostContext = createContext();
