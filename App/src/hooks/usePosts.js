@@ -7,12 +7,19 @@ const LSPostsKey = "posts";
 const usePosts = () => {
   const [posts, setPosts] = useState([]);
 
-  const addNewPost = (login, text, img) => {
+  useEffect(() => {
+    fetch("http://localhost:3000/api/v1/posts")
+      .then((response) => response.json())
+      .then((dataFromServer) => setPosts(dataFromServer));
+  }, []);
+
+  const addNewPost = (img, nickname, text, hashtag) => {
     const post = {
-      id: Date.now(),
-      login,
-      text,
       img,
+      nickname,
+      text,
+      hashtag,
+      postId: Date.now(),
       liked: false,
     };
 
@@ -20,13 +27,13 @@ const usePosts = () => {
   };
 
   const deletePost = (id) => {
-    setPosts((prev) => prev.filter((post) => post.id !== id));
+    setPosts((prev) => prev.filter((post) => post.postId !== id));
   };
 
   const likedPost = (id) => {
     setPosts((prev) =>
       prev.map((post) => {
-        if (post.id === id) {
+        if (post.postId === id) {
           return {
             ...post,
             liked: !post.liked,
@@ -47,14 +54,6 @@ const usePosts = () => {
     if (dataFromLS) {
       setPosts(JSON.parse(dataFromLS));
     }
-
-    // else {
-    //   // //Подключение фетч запроса, но он не подходит для проекта, просто как пример
-    //   // fetch("https://jsonplaceholder.typicode.com/todos?_limit=7")
-    //   //     .then(res => res.json())
-    //   //     .then(data => data.map(({title, userId, ...rest }) => ({...rest, text: title})))
-    //   //    .then((mapData) => setPosts(mapData))
-    // }
   }, []);
 
   //Записывает данные в LocalStorage

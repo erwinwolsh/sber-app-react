@@ -1,7 +1,7 @@
 const express = require("express");
 const { v4: uuidv4 } = require("uuid");
 const cors = require("cors");
-const { db } = require("./db.js");
+const { db } = require("./database/db.js");
 
 const PORT = process.env.PORT || 3000;
 
@@ -24,17 +24,19 @@ app.get("/api/v1/posts/:id", (req, res) => {
 });
 
 app.post("/api/v1/newpost", (req, res) => {
+  // сделать проверку  что все поля заполнены
   const dataFromClient = req.body;
 
   const newPost = {
     ...dataFromClient,
-    postId: uuidv4(),
+    postId: uuidv4(), // - определяется на реакте
   };
 
   db.posts.push(newPost);
   console.log(newPost);
 
   return res.json(newPost);
+  // res.redirect("/");
 });
 
 app.delete("/api/v1/posts/:id", (req, res) => {
