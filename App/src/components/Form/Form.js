@@ -61,6 +61,7 @@ const Form = () => {
             id="login"
             placeholder="What's your name?"
             value={nickname}
+            name="login"
           />
         </div>
         <div className="mb-3">

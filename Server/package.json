@@ -17,5 +17,10 @@
   "bugs": {
     "url": "https://github.com/erwinwolsh/sber-app-react/issues"
   },
-  "homepage": "https://github.com/erwinwolsh/sber-app-react#readme"
+  "homepage": "https://github.com/erwinwolsh/sber-app-react#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.3",
+    "uuid": "^8.3.2"
+  }
 }
