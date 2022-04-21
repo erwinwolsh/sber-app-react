@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { PostContext } from "../../contexts/PostContext";
+import { PostContext } from "../../../contexts/PostContext";
 import "./PostItem.css";
 const { Link } = require("react-router-dom");
 

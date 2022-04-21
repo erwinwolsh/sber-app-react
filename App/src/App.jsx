@@ -8,6 +8,7 @@ import About from "./components/About/About";
 import SignIn from "./components/SignIn/SignIn";
 import SignUp from "./components/SignUp/SignUp";
 import PageNotFound from "./components/404/404";
+import PostDetail from "./components/Posts/PostDetail/PostDetail";
 
 function App() {
   return (
@@ -17,10 +18,11 @@ function App() {
           <Header />
           <Routes>
             <Route path="/posts" element={<Main />} />
+            <Route path="/posts/:postsId" element={<PostDetail />} />
+            <Route path="/auth/logout" element={<About />} />
             <Route path="/auth/signin" element={<SignIn />} />
             <Route path="/auth/signup" element={<SignUp />} />
             <Route path="/about" element={<About />} />
-            <Route path="/auth/logout" element={<About />} />
             <Route path="*" element={<PageNotFound />} />
           </Routes>
         </BrowserRouter>

@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import { PostContext } from "../../contexts/PostContext";
-import PostItem from "../PostItem/PostItem";
+import PostItem from "./PostItem/PostItem";
 
 function Posts() {
   const { posts } = useContext(PostContext);
