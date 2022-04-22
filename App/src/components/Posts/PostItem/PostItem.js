@@ -1,4 +1,5 @@
 import { useContext } from "react";
+import { motion } from "framer-motion";
 import { PostContext } from "../../../contexts/PostContext";
 import "./PostItem.css";
 const { Link } = require("react-router-dom");
@@ -13,7 +14,11 @@ const PostItem = ({ postId, nickname, text, img, liked, hashteg }) => {
   };
 
   return (
-    <div className="col-3 card mx-3">
+    <div
+      className="col-3 card mx-3"
+      initial={{ opacity: 0, y: 100 }}
+      animate={{ opacity: 1, y: 0 }}
+    >
       <h3 className="py-3"> {nickname} </h3>
       <Link to={`/posts/${postId}`}>
         <div className="img-container">

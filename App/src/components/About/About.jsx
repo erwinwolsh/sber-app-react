@@ -4,6 +4,7 @@ function About() {
   return (
     <div className="container">
       <Form />
+      <hr />
     </div>
   );
 }

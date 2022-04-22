@@ -1,6 +1,8 @@
 import ReactDOM from "react-dom";
 import { useEffect } from "react";
+import { motion } from "framer-motion";
 import styles from "./modal.module.css";
+import { modalVrWrapper, modalInnerVariants } from "./modalanimation";
 
 function Modal({ children, state, ...rest }) {
   return ReactDOM.createPortal(
@@ -27,8 +29,20 @@ function ModalInner({ children, onClose }) {
   }, []);
 
   return (
-    <div className={styles.wrapper}>
-      <div className={styles.inner}>{children}</div>
-    </div>
+    <motion.div
+      variants={modalVrWrapper}
+      initial="start"
+      animate="show"
+      className={styles.wrapper}
+    >
+      <motion.div
+        variants={modalInnerVariants}
+        initial="start"
+        animate="show"
+        className={styles.inner}
+      >
+        {children}
+      </motion.div>
+    </motion.div>
   );
 }

@@ -7,6 +7,7 @@ function Header() {
     <header>
       <nav className="nav-wrapper bg-color container-border">
         <ul className="navbar-list">
+          <li className="nav-item"></li>
           <li className="nav-item">
             <CustomLink to="/posts">Главная</CustomLink>
           </li>
