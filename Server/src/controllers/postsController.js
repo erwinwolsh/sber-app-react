@@ -1,6 +1,6 @@
 const { db } = require("./database/db.js");
 
-const getPots = (req, res) => {
+const getPost = (req, res) => {
   const dataForClient = db.posts.map(({ authorId, ...rest }) => rest);
   res.json(dataForClient);
 };
@@ -60,7 +60,7 @@ const deletePost = (req, res) => {
 };
 
 module.exports = {
-  getPots,
+  getPost,
   getCurrenttPost,
   createPost,
   updatePost,

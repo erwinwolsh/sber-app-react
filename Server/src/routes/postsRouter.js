@@ -1,6 +1,6 @@
 const express = require("express");
 const {
-  getPots,
+  getPost,
   getCurrenttPost,
   createPost,
   updatePost,
@@ -8,7 +8,7 @@ const {
 
 const postsRouter = express.Router();
 
-postsRouter.route("/").get(getPots).post(createPost);
+postsRouter.route("/").get(getPost).post(createPost);
 
 postsRouter
   .route("/:id")

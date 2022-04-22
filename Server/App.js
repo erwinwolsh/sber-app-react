@@ -2,7 +2,7 @@ const express = require("express");
 const { v4: uuidv4 } = require("uuid");
 const cors = require("cors");
 const { postsRouter } = require("./src/routes/postsRouter.js");
-const { postController } = require(".src/controllers/postsController.js");
+// const { postsController } = require(".src/controllers/postsController.js");
 
 const PORT = process.env.PORT || 3000;
 

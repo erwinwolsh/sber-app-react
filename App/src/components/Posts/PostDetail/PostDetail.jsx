@@ -13,8 +13,6 @@ function PostDetail() {
   const [post, setPost] = useState({});
 
   useEffect(() => {
-    console.log("before");
-
     fetch(`http://localhost:3000/api/v1/posts/${postsId}`, {
       signal: controller.current.signal,
     })
@@ -22,10 +20,9 @@ function PostDetail() {
       .then((dataFromServer) => setPost(dataFromServer));
 
     return () => {
-      // eslint-disable-next-line react-hooks/exhaustive-deps
       controller.current.abort();
     };
-  }, [postsId]);
+  }, []);
 
   const openModal = () => {
     setViewModal(true);
@@ -43,7 +40,7 @@ function PostDetail() {
     const formData = Object.fromEntries(new FormData(e.target).entries());
 
     const response = await fetch(
-      `http://localhost:3000/api/v1/phones/${post.id}`,
+      `http://localhost:3000/api/v1/posts/${post.id}`,
       {
         method: "PATCH",
         headers: {

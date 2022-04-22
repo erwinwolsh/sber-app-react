@@ -12,7 +12,6 @@ function Modal({ children, state, ...rest }) {
 export default Modal;
 
 function ModalInner({ children, onClose }) {
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   const escHandler = (e) => {
     if (e.code === "Escape") {
       onClose();
@@ -25,7 +24,7 @@ function ModalInner({ children, onClose }) {
     return () => {
       window.document.removeEventListener("keydown", escHandler);
     };
-  }, [escHandler]);
+  }, []);
 
   return (
     <div className={styles.wrapper}>
