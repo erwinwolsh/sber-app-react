@@ -3,8 +3,8 @@ import { useNavigate, useParams } from "react-router-dom";
 import Modal from "../../Modal/Modal";
 import FormModal from "../../Form/FormModal/FormModal";
 
-function PostDetail() {
-  const { postsId } = useParams();
+const PostDetail = ({ nickname, text, img }) => {
+  const { postId } = useParams();
   const navigate = useNavigate();
   const [viewModal, setViewModal] = useState(false);
 
@@ -13,13 +13,14 @@ function PostDetail() {
   const [post, setPost] = useState({});
 
   useEffect(() => {
-    fetch(`http://localhost:3000/api/v1/posts/${postsId}`, {
+    fetch(`http://localhost:3000/api/v1/posts/${postId}`, {
       signal: controller.current.signal,
     })
       .then((response) => response.json())
       .then((dataFromServer) => setPost(dataFromServer));
 
     return () => {
+      // eslint-disable-next-line react-hooks/exhaustive-deps
       controller.current.abort();
     };
   }, []);
@@ -68,10 +69,10 @@ function PostDetail() {
     return (
       <>
         <div className="card" style={{ width: "18rem" }}>
-          <img src={post.img} className="card-img-top" alt="..." />
+          <img src={img} className="card-img-top" alt="..." />
           <div className="card-body">
-            <h5 className="card-title">{post.nickname}</h5>
-            <p className="card-text">{post.text}</p>
+            <h5 className="card-title">{nickname}</h5>
+            <p className="card-text">{text}</p>
             <button
               type="button"
               onClick={() => navigate(-1)}
@@ -96,6 +97,6 @@ function PostDetail() {
   };
 
   return <div className="d-flex justify-content-center">{content()}</div>;
-}
+};
 
 export default PostDetail;
